@@ -6,14 +6,13 @@ import argparse
 def callbackResult(host, scan_result):
     #print(host, scan_result)
     port_state = scan_result['scan'][host]['tcp']
-    print("Command line:"+ scan_result['nmap']['command_line'])
+    print("Command line:" + scan_result['nmap']['command_line'])
     for key, value in port_state.items():
         print('Port {0} --> {1}'.format(key, value))
 
 class NmapScannerAsync:
     def __init__(self):
         self.portScannerAsync = nmap.PortScannerAsync()
-    
     def scanning(self):
         while self.portScannerAsync.still_scanning():
             print("Scanning >>>")
@@ -22,7 +21,7 @@ class NmapScannerAsync:
     def nmapScanAsync(self, hostname, port):
         try:
             print("Checking port "+ port +" ..........")
-            self.portScannerAsync.scan(hostname, arguments="-A -sV -p"+port ,callback=callbackResult)
+            self.portScannerAsync.scan(hostname, arguments="-A -sV -p"+port , callback=callbackResult)
             self.scanning()
         except Exception as exception:
             print("Error to connect with " + hostname + " for port scanning",str(exception))

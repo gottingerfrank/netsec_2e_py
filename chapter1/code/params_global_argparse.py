@@ -20,5 +20,3 @@ params = parser.parse_args()
 input_parameters = Parameters(param1=params.param1,param2=params.param2)
 
 view_parameters(input_parameters)
-
-

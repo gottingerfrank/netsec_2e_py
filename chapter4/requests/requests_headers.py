@@ -9,7 +9,7 @@ response = requests.get("http://"+domain)
 
 print(response.json)
 
-print("Status code: "+str(response.status_code))
+print("Status code: "+str(response.status_code)
 
 print("Headers response: ")
 for header, value in response.headers.items():

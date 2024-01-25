@@ -4,18 +4,9 @@ import optparse
 import nmap
 
 class NmapScanner:
-     
-    def __init__(self): 
-        self.portScanner = nmap.PortScanner()
-    
-    def nmapScan(self, ip_address, port): 
-        self.portScanner.scan(ip_address, port) 
-        self.state = self.portScanner[ip_address]['tcp'][int(port)]['state']
-        print(" [+] Executing command: ", self.portScanner.command_line()) 
-        print(" [+] "+ ip_address + " tcp/" + port + " " + self.state)
 
 def main():
-    parser = optparse.OptionParser("usage%prog " + "--ip_address <target ip address> --ports <target port>") 
+    parser = optparseOptionParser("usage%prog " + "--ip_address <target ip address> --ports <target port>") 
     parser.add_option('--ip_address', dest = 'ip_address', type = 'string', help = 'Please, specify the target ip address.')
     parser.add_option('--ports', dest = 'ports', type = 'string', help = 'Please, specify the target port(s) separated by comma.')
     (options, args) = parser.parse_args()

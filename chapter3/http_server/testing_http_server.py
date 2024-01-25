@@ -8,4 +8,5 @@ webclient.connect((webhost, webport))
 webclient.send(bytes("GET / HTTP/1.1\r\nHost: localhost\r\n\r\n".encode('utf-8')))
 reply = webclient.recv(4096)
 print("Response from %s:" % webhost)
-print(reply.decode())
+print(reply.decode('utf-8'))
+

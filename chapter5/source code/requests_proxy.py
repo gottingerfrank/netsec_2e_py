@@ -20,5 +20,3 @@ response = session.get('https://www.facebookcorewwwi.onion/')
 #get headers dictionary response
 for key,value in response.headers.items():
     print(key,value)
-
-

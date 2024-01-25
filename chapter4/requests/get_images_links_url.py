@@ -28,4 +28,3 @@ for link,name in re.findall("<a (.*)>(.*)</a>",var):
                 print(url_image)
             else:
                 print(url+url_image)
-

